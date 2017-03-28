@@ -20,6 +20,8 @@ var users = require('./controllers/users.js');
 
 var app = express();
 
+var seeds = require('./db/seeds');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

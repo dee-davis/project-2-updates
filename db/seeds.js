@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/project-2');
-
-var User = require("./models/user");
+// need to create a models/user file and model/coach
+var User = require("../db/schema.js").User;
 
 mongoose.promise = global.Promise;
 
@@ -12,32 +11,29 @@ User.remove({}, function(err) {
 var saintExupery = new User({
     first_name: 'Antoine',
     last_name: 'de Saint-Exupery',
-    country: 'France',
-    book_title: 'The Little Prince',
-    publication_year: '1943'
+    username: 'user1',
+    password: 'password',
 });
 
 var fforde = new User({
     first_name: 'Jasper',
     last_name: 'Fforde',
-    country: 'England',
-    book_title: 'The Eyre Affair',
-    publication_year: '2001'
+    username: 'user2',
+    password: 'password',
 });
 
 var willig = new User({
     first_name: 'Lauren',
     last_name: 'Willig',
-    country: 'United States',
-    book_title: 'The Secret History of the Pink Carnation', 	publication_year: '2000'
+    username: 'user3',
+    password: 'password',
 });
 
 var lutz = new User({
     first_name: 'Lisa',
     last_name: 'Lutz',
-    country: 'Unites States',
-    book_title: 'The Spellman Files: A Novel',
-    publication_year: '2007'
+    username: 'user4',
+    password: 'password',
 });
 
 
