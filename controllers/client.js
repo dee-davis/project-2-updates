@@ -28,7 +28,7 @@ router.post('/', function(req, res) {
 
         console.log(client);
         // res.send(clients);
-        res.render('client/show', {
+        res.render('client/index', {
               client: client
         });
     });
