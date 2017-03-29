@@ -1,62 +1,38 @@
 var mongoose = require('mongoose');
 // need to create a models/user file and model/coach
-var User = require("../db/schema.js").User;
+var Coach = require("../models/coach");
+var Client = require("../models/client");
+// require the models
+// var User = require('../models/user');
+// var Item = require('../models/item');
+// var ProjectIdea = require('./models/project_idea');
+// Use native promises
 
 mongoose.promise = global.Promise;
 
-User.remove({}, function(err) {
+Coach.remove({}, function(err) {
     console.log(err);
 });
-
-var saintExupery = new User({
-    first_name: 'Antoine',
-    last_name: 'de Saint-Exupery',
-    username: 'user1',
-    password: 'password',
+// Creating sample client and coach
+var dee = new Coach({
+    first_name: 'Dee',
+    last_name: 'Davis',
+    email: "dee@gmail.com",
+    username: 'dee',
+    password: 'dee'
 });
 
-var fforde = new User({
-    first_name: 'Jasper',
-    last_name: 'Fforde',
-    username: 'user2',
-    password: 'password',
+var danny = new Client({
+    name: "Danny",
+    email: "danny@gmail.com",
+    phone: 29
 });
 
-var willig = new User({
-    first_name: 'Lauren',
-    last_name: 'Willig',
-    username: 'user3',
-    password: 'password',
-});
+danny.save()
+dee.clients.push(danny)
 
-var lutz = new User({
-    first_name: 'Lisa',
-    last_name: 'Lutz',
-    username: 'user4',
-    password: 'password',
-});
-
-
-saintExupery.save(function(err) {
+dee.save(function(err) {
   if (err) console.log(err);
 
-  console.log('de Saint-Exupery created!');
-});
-
-fforde.save(function(err) {
-  if (err) console.log(err);
-
-  console.log('Fforde created!');
-});
-
-willig.save(function(err) {
-  if (err) console.log(err);
-
-  console.log('Willig created!');
-});
-
-lutz.save(function(err) {
-  if (err) console.log(err);
-
-  console.log('Lutz created!');
+  console.log('dee created!');
 });

@@ -13,11 +13,13 @@ var methodOverride = require('method-override');
 var hbs =('hbs');
 mongoose.connect('mongodb://localhost/project-2');
 
+var client = require('./controllers/client.js');
 // var index = require('./routes/index');
 var index = require('./controllers/index.js');
 // var users = require('./routes/users');
-var users = require('./controllers/users.js');
-
+// var users = require('./controllers/users.js');
+// added
+var coaches = require('./controllers/coaches.js');
 var app = express();
 
 var seeds = require('./db/seeds');
@@ -38,12 +40,14 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
-
+// no route for /
 app.use('/', index);
-app.use('/users', users);
+// app.use('/users', users);
 
-// app.use('/authors', authors);
+// app.use('/authors', authors);added
+app.use('/coaches', coaches);
 
+app.use('/client', client);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
