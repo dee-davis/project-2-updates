@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+var router = express.Router({mergeParams: true});
 var Coach = require('../models/coach');
 var Client = require('../models/client');
 var mongoose = require("mongoose");
@@ -38,7 +38,8 @@ router.get('/', function(req, res) {
   Coach.findById(req.params.id)
     .exec(function(err, coach) {
       if(err) {console.log(err)};
-      res.send('page is working');
+      res.render('client/index');
+        client: coach.clients
     });
 });
 module.exports = router;
