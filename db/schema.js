@@ -10,8 +10,8 @@ mongoose.promise = global.Promise;
 var ClientSchema = new Schema({
   first_name: String,
   last_name: String,
-  email: Number,
-  phone_number: Number,
+  email: String,
+  phone_number: String,
   notes: String,
 });
 
