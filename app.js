@@ -46,8 +46,8 @@ app.use('/', index);
 
 // app.use('/authors', authors);added
 app.use('/coaches', coaches);
-
-app.use('/client', client);
+// If type in client, goes to client controller
+app.use('/coaches/:id/clients', client);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

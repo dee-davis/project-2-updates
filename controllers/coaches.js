@@ -22,7 +22,7 @@ router.post('/', function(req, res){
     newCoachId = newCoach.id;
     if (err) {console.log(err)}
     console.log(coach);
-    res.redirect('/coaches/' + newCoachId);
+    res.redirect('/coaches/' + newCoachId + '/clients');
   })
 })
 // Show individual Coaches

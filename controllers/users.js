@@ -8,7 +8,7 @@ var CoachSchema = require('../db/schema.js').Coach;
 // var ProjectIdea = require('./models/project_idea');
 /* GET users listing. */
 router.post('/', function(req, res, next) {
-  UserSchema.find({ username: req.body.username },
+  CoachSchema.find({ username: req.body.username },
     // console.log("Check");
      function(err, suc) {
       //  did i get one result back checking for one user
