@@ -38,8 +38,20 @@ router.get('/', function(req, res) {
   Coach.findById(req.params.id)
     .exec(function(err, coach) {
       if(err) {console.log(err)};
-      res.render('client/index');
+      console.log(coach);
+      res.render('client/index', {
+        client: coach.clients,
+          id: req.params.id
+    });
+  });
+});
+router.get('/new', function(req, res) {
+  Coach.findById(req.params.id)
+    .exec(function(err, coach) {
+      if(err) {console.log(err)};
+      res.render('client/new', {
         client: coach.clients
     });
+});
 });
 module.exports = router;
