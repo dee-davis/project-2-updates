@@ -36,7 +36,7 @@ CoachSchema.pre('save', function(next){
 });
 
 CoachSchema.virtual('fullName').get(function () {
-    return this.first_name + ' ' + this.last_name;
+    return this.first_name + ' ' + this.last_name + this.email + this.phone_number + this.notes;
 });
 
 var CoachModel = mongoose.model("Coach", CoachSchema);

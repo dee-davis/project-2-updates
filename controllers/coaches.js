@@ -5,6 +5,36 @@ var Coach = require('../models/coach');
 // require models
 // var Item = require('../models/item');
 // var ProjectIdea = require('./models/project_idea');
+router.post('/login', function(req, res) {
+  Coach.find({ username: req.body.username },
+    // console.log("Check");
+    function(err, coaches) {
+      //  did i get one result back checking for one user
+
+      if (coaches.length === 1) {
+        //username exists, now check password
+        var coach = coaches[0];
+
+        console.log(coach.password);
+        console.log(req.body.password);
+
+        if(coach.password === req.body.password) {
+          res.render('client/index', {
+            client: coach.clients,
+            id: coach._id
+          });
+        } else {
+          res.send('Wrong Password Try Again');
+        }
+
+        //check and see if user password is equal to password that person tried to log in with
+
+      } else {
+        //username does not exists
+        res.send('That is not a valid username.');
+      }
+    });
+  });
 
 // index authors
 router.get('/', function(req, res, next) {

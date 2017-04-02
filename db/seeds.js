@@ -15,15 +15,13 @@ Coach.remove({}, function(err) {
 });
 // Creating sample client and coach
 var dee = new Coach({
-    first_name: 'Dee',
-    last_name: 'Davis',
-    email: "dee@gmail.com",
     username: 'dee',
     password: 'dee'
 });
 
 var danny = new Client({
-    name: "Danny",
+    first_name: 'Daniel',
+    last_name: 'Worschestershire',
     email: "danny@gmail.com",
     phone: 29
 });

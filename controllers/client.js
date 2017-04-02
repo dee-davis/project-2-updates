@@ -23,28 +23,58 @@ router.post('/', function(req, res) {
         phone_number: req.body.phone_number,
         notes: req.body.notes
     });
+
+    // anonymous function
     client.save(function(err, client){
+      if (err) { console.log(err); }
+      console.log(client);
+    });
+
+    Coach.findOneAndUpdate(
+      { _id: req.params.id},
+      { $push: { clients: client  } },
+      { new: true },
+      function(err, coach) {
+        if (err) { console.log(err); }
+        console.log(coach);
+        res.render('client/index', {
+          client: coach.clients,
+          id: req.params.id
+        });
+      }
+    );
+});
+
+// Creating a Delete Route and Request lines 49-63
+// router.delete('/id', function(req, res) {
+// 	coach.clients.splice(req.params.id, 1); // remove the item from the array
+//   res.redirect('/clients');  // redirect back to the index route
+//   });
+
+  router.get('/:id/edit', function(req,res) {
+    Coach.findById(req.params.id)
+      .exec(function(err, coach) {
         if (err) { console.log(err); }
 
-        console.log(client);
-        // res.send(clients);
-        res.render('client/index', {
-              client: client
-        });
+    res.render('coaches/edit', {
+      coach: coach.clients
     });
+  });
 });
 
 router.get('/', function(req, res) {
   Coach.findById(req.params.id)
     .exec(function(err, coach) {
       if(err) {console.log(err)};
-      console.log(coach);
+
       res.render('client/index', {
-        client: coach.clients,
+          client: coach.clients,
           id: req.params.id
     });
   });
 });
+
+
 router.get('/new', function(req, res) {
   Coach.findById(req.params.id)
     .exec(function(err, coach) {

@@ -13,7 +13,7 @@ router.post('/', function(req, res, next) {
      function(err, suc) {
       //  did i get one result back checking for one user
       console.log(suc);
-    if (suc.length === 1) {
+      if (suc.length === 1) {
       //username exists, now check password
       var user = suc[0];
 
