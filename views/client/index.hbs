@@ -1,3 +1,4 @@
+<div class="container-fluid bg-2 text-center">
 My clients
 <div>
   {{#each client}}
@@ -8,12 +9,13 @@ My clients
   <!-- turns it into a button -->
   <input type="submit" value="Add" class="btn btn-primary">
 </a>
-<!-- Added delete button -->
+<!-- Adds a delete button -->
 <!-- <ul>
   {{#each client}}
-    <br>
-    <form action="/clients/{{@index}}?_method=DELETE" method="POST">
-      <input type="submit" value="DELETE"/>
-    </form>
-  {{/each}}
+  <br>
+  <form action="/clients/{{@index}}?_method=DELETE"
+  method="POST">
+  <input type="submit" value="DELETE" class="btn btn-primary"/>
+</form>
+{{/each}}
 </ul> -->
