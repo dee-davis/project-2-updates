@@ -1,8 +1,6 @@
-/*h1 {
-  display: center;
-  color: red;
-}*/
+/*@import url() inside fonts*/
 body {
+  background-image: url("projecttwo.jpg");
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   text-align: center;

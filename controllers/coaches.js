@@ -41,6 +41,23 @@ router.get('/', function(req, res, next) {
   res.render('coaches', { title: ''});
 });
 
+router.post('/:id/delete', function(req, res){
+  var idOfClientToDelete = req.query._id;
+
+  Coach.findById(req.params.id)
+    .exec(function(err, coach) {
+      if(err) {console.log(err)};
+      coach.clients.forEach(function(client, index) {
+
+      if ((client._id ? client._id.toString() : null) === idOfClientToDelete) {
+          coach.clients.splice(index, 1);
+          coach.save(function() {
+            res.redirect('/coaches/' + coach.id + '/clients');
+          });
+        }
+      })
+    });
+  });
 
 router.post('/', function(req, res){
   var newCoach = new Coach({

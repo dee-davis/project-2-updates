@@ -2,7 +2,7 @@
 My clients
 <div>
   {{#each client}}
-<li>{{this.first_name}} {{this.last_name}}{{this.email}}{{this.phone_number}}{{this.notes}}</li>
+<li>{{this.first_name}} {{this.last_name}} | {{this.email}} | {{this.phone_number}} | {{this.notes}} | <form action="/coaches/{{../id}}/delete?_id={{this._id}}" method="POST"><input type="submit" value="Delete" class="btn btn-primary"></form></li>
 {{/each}}
 </div>
 <a href="/coaches/{{id}}/clients/new">

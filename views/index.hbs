@@ -1,42 +1,48 @@
-<div class="container-fluid bg-2 text-center">
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<form action="/coaches/login" method="post">
-<!-- <div class="container-fluid bg-2 text-center"> -->
-<!-- {{date}} -->
-<h4>Please Login</h4>
-  <div>
-  	<label for="username">username</label>
-  	<input type="text" name="username">
-  </div>
+<head>
+  <!-- <link rel="stylesheet" type="text.css" href="style.css"> -->
+</head>
+<body>
+  <div class="container-fluid bg-2 text-center">
 
-  <div>
-    <label for="password">password</label>
-    <input type="text" name="password">
-  </div>
+    <h1>{{title}}</h1>
+    <p>Welcome to {{title}}</p>
+    <form action="/coaches/login" method="post">
+      <!-- <div class="container-fluid bg-2 text-center"> -->
+      <!-- {{date}} -->
+      <h4>Please Login</h4>
+      <div>
+        <label for="username">username</label>
+        <input type="text" name="username">
+      </div>
 
-<div>
-  <input type="submit" value="Login" class="btn btn-primary">
-</div>
-<br>
-</form>
-</br>
+      <div>
+        <label for="password">password</label>
+        <input type="text" name="password">
+      </div>
+
+      <div>
+        <input type="submit" value="Login" class="btn btn-primary">
+      </div>
+      <br>
+    </form>
+  </br>
   <h4>New Coach? Sign Up!</h4>
   <form action="/coaches" method="post">
 
-  <div>
-    <label for="username">username</label>
-    <input type="text" name="username">
-  </div>
+    <div>
+      <label for="username">username</label>
+      <input type="text" name="username">
+    </div>
 
-  <div>
-    <label for="password">password</label>
-    <input type="text" name="password">
-  </div>
-<div>
+    <div>
+      <label for="password">password</label>
+      <input type="text" name="password">
+    </div>
+    <div>
 
-  <input type="submit" value="SignUp" class="btn btn-primary">
-  </div>
-</form>
+      <input type="submit" value="SignUp" class="btn btn-primary">
+    </div>
+  </form>
   <!-- trial to make new page for client info -->
-  <head>
+
+</body>

@@ -18,12 +18,14 @@ var dee = new Coach({
     username: 'dee',
     password: 'dee'
 });
-
+// delete this
 var danny = new Client({
+    _id: '123hunna',
     first_name: 'Daniel',
-    last_name: 'Worschestershire',
+    last_name: '',
     email: "danny@gmail.com",
-    phone: 29
+    phone_number: 29,
+    notes: 'Test'
 });
 
 danny.save()
