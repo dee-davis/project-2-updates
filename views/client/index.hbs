@@ -1,5 +1,5 @@
 <div class="container-fluid bg-2 text-center">
-My clients
+<h3>My clients</h3>
 <div>
   {{#each client}}
 <li>{{this.first_name}} {{this.last_name}} | {{this.email}} | {{this.phone_number}} | {{this.notes}} | <form action="/coaches/{{../id}}/delete?_id={{this._id}}" method="POST"><input type="submit" value="Delete" class="btn btn-primary"></form></li>
@@ -9,13 +9,3 @@ My clients
   <!-- turns it into a button -->
   <input type="submit" value="Add" class="btn btn-primary">
 </a>
-<!-- Adds a delete button -->
-<!-- <ul>
-  {{#each client}}
-  <br>
-  <form action="/clients/{{@index}}?_method=DELETE"
-  method="POST">
-  <input type="submit" value="DELETE" class="btn btn-primary"/>
-</form>
-{{/each}}
-</ul> -->

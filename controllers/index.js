@@ -7,7 +7,7 @@ var router = express.Router();
 // var ProjectIdea = require('./models/project_idea');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Snag a Coach'});
+  res.render('index', { title: 'Coach in Motion'});
 });
 
 module.exports = router;
