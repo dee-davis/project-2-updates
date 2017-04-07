@@ -1,19 +1,3 @@
-// Connect to database
-if (process.env.MONGODB_URI) {
-  mongoose.connect(process.env.MONGODB_URI);
-}
-else {
-  mongoose.connect('mongodb://localhost/express-movies');
-}
-mongoose.connection.on('error', function(err) {
-  console.error('MongoDB connection error: ' + err);
-  process.exit(-1);
-  }
-);
-mongoose.connection.once('open', function() {
-  console.log("Mongoose has connected to MongoDB!");
-});
-
 pry = require('pryjs');
 var express = require('express');
 var mongoose = require('mongoose');
@@ -27,7 +11,7 @@ var session = require('express-session');
 var methodOverride = require('method-override');
 // var db = require('.db');
 var hbs =('hbs');
-mongoose.connect('mongodb://localhost/project-2');
+
 
 var client = require('./controllers/client.js');
 // var index = require('./routes/index');
@@ -38,7 +22,7 @@ var index = require('./controllers/index.js');
 var coaches = require('./controllers/coaches.js');
 var app = express();
 
-var seeds = require('./db/seeds');
+// require('./db/seeds');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -91,5 +75,21 @@ app.get("/:name", function(req, res){
 // app.listen(3000, function() {
 //   console.log('hey');
 // });
+
+// Connect to database
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+}
+else {
+  mongoose.connect('mongodb://localhost/project-two');
+}
+mongoose.connection.on('error', function(err) {
+  console.error('MongoDB connection error: ' + err);
+  process.exit(-1);
+  }
+);
+mongoose.connection.once('open', function() {
+  console.log("Mongoose has connected to MongoDB!");
+});
 
 module.exports = app;
