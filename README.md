@@ -31,7 +31,7 @@ Create a functional application with authorization
 
 ## Deployment
 
-[View App](https://guarded-beyond-17438.herokuapp.com/)
+[View App](https://coach-in-motion.herokuapp.com/)
 
 ## User Stories
 
