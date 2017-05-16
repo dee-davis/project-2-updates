@@ -62,7 +62,7 @@ router.post('/', function(req, res) {
   });
 });
 
-router.get('/', function(req, res) {
+router.get('/', function(req,res ) {
   Coach.findById(req.params.id)
     .exec(function(err, coach) {
       if(err) {console.log(err)};
