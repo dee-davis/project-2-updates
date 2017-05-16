@@ -72,9 +72,9 @@ app.get("/:name", function(req, res){
   console.log(req.params);
   res.send(`Hello, ${req.params.name}!`);
 });
-// app.listen(3000, function() {
-//   console.log('hey');
-// });
+app.listen(process.env.PORT || 3000, function() {
+  console.log('hey');
+});
 
 // Connect to database
 if (process.env.MONGODB_URI) {
