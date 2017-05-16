@@ -22,7 +22,7 @@ var CoachSchema = new Schema({
   created_at: String,
   updated_at: String,
   username: String,
-  password: String,
+  password_digest: String,
   clients: [ClientSchema]
 });
 

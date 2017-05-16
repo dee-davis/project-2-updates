@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
-
+var auth = require('../helpers/auth');
 var Coach = require('../models/coach');
 // require models
 // var Item = require('../models/item');
 // var ProjectIdea = require('./models/project_idea');
-router.post('/login', function(req, res) {
+router.post('/login', auth.loginUser, function(req, res) {
   Coach.find({ username: req.body.username },
     // console.log("Check");
     function(err, coaches) {
@@ -15,17 +15,10 @@ router.post('/login', function(req, res) {
         //username exists, now check password
         var coach = coaches[0];
 
-        console.log(coach.password);
-        console.log(req.body.password);
-
-        if(coach.password === req.body.password) {
-          res.render('client/index', {
+        res.render('client/index', {
             client: coach.clients,
             id: coach._id
-          });
-        } else {
-          res.send('Wrong Password Try Again');
-        }
+        });
 
         //check and see if user password is equal to password that person tried to log in with
 
@@ -59,10 +52,10 @@ router.post('/:id/delete', function(req, res){
     });
   });
 
-router.post('/', function(req, res){
+router.post('/', auth.createSecure, function(req, res){
   var newCoach = new Coach({
     username: req.body.username,
-    password: req.body.password
+    password_digest: res.hashedPassword
   });
 console.log(newCoach);
   newCoach.save(function(err, coach) {
